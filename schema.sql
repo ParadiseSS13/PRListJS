@@ -1,15 +1,12 @@
--- Updated Schema (without BALANCE)
--- ====================================
-
 CREATE TABLE IF NOT EXISTS `member_cache` (
-                                              `fuid` int(11) NOT NULL,
+    `fuid` int(11) NOT NULL,
     `username` text NOT NULL,
     `last_seen` datetime DEFAULT NULL,
     PRIMARY KEY (`fuid`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `notes` (
-                                       `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `noting_member_fuid` int(11) NOT NULL,
     `pr_number` int(11) NOT NULL,
     `note_text` text NOT NULL,
@@ -22,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `notes` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `prs` (
-                                     `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `pr_number` int(11) NOT NULL,
     `pr_name` text NOT NULL,
     `pr_type` text NOT NULL,
@@ -36,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `prs` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `tm_requests` (
-                                             `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `requesting_member_fuid` int(11) NOT NULL,
     `pr_number` int(11) NOT NULL,
     `created` datetime DEFAULT current_timestamp(),
@@ -48,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `tm_requests` (
     ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `votes_new` (
-                                           `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `voting_member_fuid` int(11) NOT NULL,
     `pr_number` int(11) NOT NULL,
     `voting_group` enum('LEGACY','DESIGN','VETO','SPRITE','MAP') NOT NULL,
