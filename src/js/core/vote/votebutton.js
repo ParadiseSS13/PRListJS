@@ -32,6 +32,7 @@ export const VoteButton = ({votecat, prnum}) => {
         let t_override;
         if (t === "Veto") {
             const pr = API.pr_list.find(pr => pr.num === prnum);
+            // If the Veto option exists, and the PR has the "Headcoder" category, set this var to later change "Veto" to "Headcoder" on the frontend
             if (pr && pr.ptype && Array.isArray(pr.ptype) && pr.ptype.includes(VotingGroup.HEADCODER)) {
                 t_override = "Headcoder";
             }
