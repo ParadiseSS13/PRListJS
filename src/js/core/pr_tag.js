@@ -7,12 +7,11 @@ export const PrTag = ({ prtype, prnum }) => {
     const isReadOnly = API.rights.indexOf("Special") === -1;
 
     let all_types = [
-        { value: VotingGroup.BALANCE, color: "#e8d639", backgroundColor: "#2b2611", hotkey: "b" },
         { value: VotingGroup.DESIGN, color: "#6abe39", backgroundColor: "#162312", hotkey: "d" },
         { value: VotingGroup.SPRITE, color: "#e0529c", backgroundColor: "#291321", hotkey: "s" },
         { value: VotingGroup.MAP, color: "lightblue", backgroundColor: "#00c0ff42", hotkey: "m" },
         { value: VotingGroup.TECHNICAL, color: "#e87040", backgroundColor: "#2b1611", hotkey: "t" },
-        { value: VotingGroup.HEADCODER, color: "darkred", backgroundColor: "#231414", hotkey: "h" }  
+        { value: VotingGroup.HEADCODER, color: "darkred", backgroundColor: "#231414", hotkey: "h" }
     ];
 
     // Save the actual stored groups so we can compare them later

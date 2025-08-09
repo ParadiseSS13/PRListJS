@@ -148,10 +148,6 @@ export const App = () => {
             <PrTag prtype={types} prnum={row.num} />
          ), filters: [
             {
-                text: VotingGroup.BALANCE,
-                value: VotingGroup.BALANCE
-            },
-            {
                 text: VotingGroup.DESIGN,
                 value: VotingGroup.DESIGN
             },

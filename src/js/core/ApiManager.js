@@ -214,9 +214,6 @@ export class ApiManager {
             case "LEGACY": {
                 return "[L]";
             }
-            case "BALANCE": {
-                return "[B]";
-            }
             case "DESIGN": {
                 return "[D]";
             }
