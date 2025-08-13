@@ -25,14 +25,14 @@ export class ApiManagerMock extends ApiManager {
         this.userName = "MockUser";
         this.uid = "1234";
         this.highest_group = "MockGroup";
-        this.rights = ["Design", "Balance", "Sprite", "Map", "Special"];
+        this.rights = ["Design", "Sprite", "Map", "Special"];
         this.loaded = true;
     }
 
     async getPrs() {
         this.pr_list = [
-            this.makePr(12345, "Test", [VotingGroup.BALANCE], "2024-01-01", 1),
-            this.makePr(12346, "Test2", [VotingGroup.DESIGN, VotingGroup.BALANCE], "2024-01-02", 2),
+            this.makePr(12345, "Test", [VotingGroup.DESIGN], "2024-01-01", 1),
+            this.makePr(12346, "Test2", [VotingGroup.DESIGN], "2024-01-02", 2),
             this.makePr(12347, "Test3", [VotingGroup.TECHNICAL], "2024-01-03", 3),
             this.makePr(12348, "Test4", [VotingGroup.HEADCODER], "2024-01-05", 5),
             this.makePr(12349, "Test5", [VotingGroup.SPRITE], "2024-01-06", 30),
@@ -57,7 +57,6 @@ export class ApiManagerMock extends ApiManager {
             do: dateOpened,
             dl: daysLeft
         }
-
     }
 
     async setPrTypes(pr, prVotingGroups) {

@@ -27,7 +27,6 @@ $gids = array(
     "HEAD" => 23,
     // Voting groups
     "HEADCODER" => 19,
-    "BALANCETEAM" => 40,
     "DESIGNTEAM" => 41,
     "SPRITETEAM" => 42,
     "REVIEWTEAM" => 14,
@@ -44,7 +43,7 @@ if (!($member->inGroup($gids))) {
 $t0_groups = array($gids["TA"], $gids["GA"], $gids["CM"], $gids["SDEV"], $gids["HOST"], $gids["HEAD"]);
 
 // Groups that have ability to vote + request TMs + other stuff
-$t1_groups = array($gids["HEADCODER"], $gids["BALANCETEAM"], $gids["DESIGNTEAM"], $gids["REVIEWTEAM"], $gids["SPRITETEAM"], $gids["MAPTEAM"]);
+$t1_groups = array($gids["HEADCODER"], $gids["DESIGNTEAM"], $gids["REVIEWTEAM"], $gids["SPRITETEAM"], $gids["MAPTEAM"]);
 
 // Gets user access level
 function getAccessLevel()
@@ -90,7 +89,6 @@ function getAllRights()
     // This trumps everything else
     if ($member->inGroup($gids["HEADCODER"]) || $member->member_id == 3288) { // Grant AA AA
         array_push($out_array, "Special");
-        array_push($out_array, "Balance");
         array_push($out_array, "Design");
         array_push($out_array, "Sprite");
         array_push($out_array, "Comment");
@@ -100,12 +98,6 @@ function getAllRights()
     }
 
     // These 2 get their respective votes
-    if ($member->inGroup($gids["BALANCETEAM"])) {
-        array_push($out_array, "Balance");
-        array_push($out_array, "Comment");
-        array_push($out_array, "TMR");
-    }
-
     if ($member->inGroup($gids["DESIGNTEAM"])) {
         array_push($out_array, "Design");
         array_push($out_array, "Comment");
@@ -437,7 +429,7 @@ switch ($_GET["t"]) {
 
     case "addvote": {
             $rightsarr = getAllRights();
-            if (!(in_array("Design", $rightsarr) || in_array("Balance", $rightsarr) || in_array("Sprite", $rightsarr) || in_array("Special", $rightsarr) || in_array("Map", $rightsarr))) {
+            if (!(in_array("Design", $rightsarr) || in_array("Sprite", $rightsarr) || in_array("Special", $rightsarr) || in_array("Map", $rightsarr))) {
                 print "Access Denied";
                 http_response_code(403);
                 exit();
@@ -453,12 +445,6 @@ switch ($_GET["t"]) {
                 case "Design": {
                         if (in_array("Design", $rightsarr)) {
                             $votetype = "DESIGN";
-                        }
-                        break;
-                    }
-                case "Balance": {
-                        if (in_array("Balance", $rightsarr)) {
-                            $votetype = "BALANCE";
                         }
                         break;
                     }
@@ -531,7 +517,7 @@ switch ($_GET["t"]) {
 
     case "delvote": {
             $rightsarr = getAllRights();
-            if (!(in_array("Design", $rightsarr) || in_array("Balance", $rightsarr) || in_array("Sprite", $rightsarr) ||  in_array("Special", $rightsarr))) {
+            if (!(in_array("Design", $rightsarr) || in_array("Sprite", $rightsarr) ||  in_array("Special", $rightsarr))) {
                 print "Access Denied";
                 http_response_code(403);
                 exit();
