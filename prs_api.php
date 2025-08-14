@@ -173,7 +173,7 @@ switch ($_GET["t"]) {
             // Lets get all the PRs for now, votes can come later
             $prs = array();
             $conn = getPrDB();
-            $stmt = $conn->prepare("SELECT *, (30 - DATEDIFF(NOW(), date_opened)) AS days_left, DATE_FORMAT(date_opened, \"%Y-%m-%d\") AS df FROM prs WHERE pr_status='OPEN' ORDER BY pr_number ASC");
+            $stmt = $conn->prepare("SELECT *, (15 - DATEDIFF(NOW(), date_opened)) AS days_left, DATE_FORMAT(date_opened, \"%Y-%m-%d\") AS df FROM prs WHERE pr_status='OPEN' ORDER BY pr_number ASC");
             $stmt->execute();
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
