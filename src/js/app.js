@@ -127,9 +127,9 @@ export const App = () => {
 
         if(dli < 0) {
             tag_colour = "default";
-        } else if(dli < 3) {
+        } else if(dli < 5) {
             tag_colour = "error";
-        } else if(dli < 14) {
+        } else if(dli < 10) {
             tag_colour = "warning";
         }
 
